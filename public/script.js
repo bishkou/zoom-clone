@@ -31,24 +31,6 @@ navigator.mediaDevices.getUserMedia({
     });
 });
 
-navigator.mediaDevices.getUserMedia({
-    video: true,
-    audio: true
-}).then(stream => {
-    myVideoStream = stream;
-    addVideoStream(myVideo, stream);
-
-    peer.on('call', call => {
-        call.answer(stream); // Answer the call with an A/V stream.
-        const video = document.createElement('video');
-        call.on('stream', userVideoStream => {
-            addVideoStream(video, userVideoStream);
-        });
-    });
-    socket.on('user-connected', (userId) => {
-        connectToNewUser(userId, stream);
-    });
-});
 
 
 peer.on('open', id => {
