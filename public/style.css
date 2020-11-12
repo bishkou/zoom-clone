@@ -3,7 +3,15 @@
     justify-content: center;
 }
 
+video {
+    height: 300px;
+    width: 400px;
+}
 
+.main {
+    height: 100vh;
+    display: flex;
+}
 
 .main__left {
     flex: 0.8;
